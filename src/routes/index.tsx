@@ -43,11 +43,7 @@ import {
   type PredictionResult,
 } from "@/lib/model";
 import { computeStats, loadHistory, saveHistory, type HistoryEntry } from "@/lib/history";
-import {
-  downloadHistoryCsv,
-  downloadPredictionCsv,
-  downloadPredictionPdf,
-} from "@/lib/exporters";
+import { downloadHistoryCsv, downloadPredictionCsv, downloadPredictionPdf } from "@/lib/exporters";
 import { predictLoanRepayment } from "@/lib/predict.functions";
 
 export const Route = createFileRoute("/")({
@@ -328,10 +324,7 @@ function LoanPredictor() {
               {CATEGORICAL_FEATURES.map((f) => (
                 <div key={f.key}>
                   <FieldLabel label={f.label} tooltip={f.tooltip} />
-                  <Select
-                    value={form[f.key] ?? ""}
-                    onValueChange={(v) => setField(f.key, v)}
-                  >
+                  <Select value={form[f.key] ?? ""} onValueChange={(v) => setField(f.key, v)}>
                     <SelectTrigger
                       aria-invalid={Boolean(errors[f.key])}
                       className={`w-full ${errors[f.key] ? "border-destructive" : ""}`}
@@ -354,7 +347,11 @@ function LoanPredictor() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button onClick={onPredict} disabled={loading} className="min-w-40 flex-1 sm:flex-none">
+              <Button
+                onClick={onPredict}
+                disabled={loading}
+                className="min-w-40 flex-1 sm:flex-none"
+              >
                 {loading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Scoring…

@@ -19,14 +19,7 @@ export function RiskGauge({ value, label, tone }: Props) {
   return (
     <div className="relative flex h-48 w-48 shrink-0 items-center justify-center">
       <svg viewBox="0 0 180 180" className="h-full w-full -rotate-90">
-        <circle
-          cx="90"
-          cy="90"
-          r={radius}
-          fill="none"
-          strokeWidth="14"
-          className="stroke-muted"
-        />
+        <circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" className="stroke-muted" />
         <circle
           cx="90"
           cy="90"

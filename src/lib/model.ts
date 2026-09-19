@@ -37,7 +37,8 @@ export const NUMERIC_FEATURES = [
     step: 0.01,
     min: 0,
     max: 200,
-    tooltip: "Requested loan principal in lakhs. Large amounts relative to income raise default risk.",
+    tooltip:
+      "Requested loan principal in lakhs. Large amounts relative to income raise default risk.",
   },
   {
     key: "Credit Score",
@@ -64,7 +65,8 @@ export const NUMERIC_FEATURES = [
     step: 1,
     min: 0,
     max: 20,
-    tooltip: "Number of active loans already held. More parallel obligations increase default odds.",
+    tooltip:
+      "Number of active loans already held. More parallel obligations increase default odds.",
   },
 ] as const;
 

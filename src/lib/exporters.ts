@@ -33,7 +33,10 @@ export function downloadPredictionPdf(entry: HistoryEntry) {
   doc.setFontSize(11);
 
   const summary: [string, string][] = [
-    ["Loan Status", isDefault ? "HIGH RISK - Default predicted" : "LOW RISK - No default predicted"],
+    [
+      "Loan Status",
+      isDefault ? "HIGH RISK - Default predicted" : "LOW RISK - No default predicted",
+    ],
     ["Predicted Class (Repayment)", String(entry.result.predictedClass)],
     ["Default Probability", pct(entry.result.defaultProbability)],
     ["Repayment Probability", pct(entry.result.repaymentProbability)],
@@ -74,9 +77,7 @@ export function downloadPredictionPdf(entry: HistoryEntry) {
 }
 
 function toCsv(rows: (string | number)[][]) {
-  return rows
-    .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
-    .join("\n");
+  return rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
 }
 
 function download(filename: string, content: string, type: string) {
