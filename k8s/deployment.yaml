@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-default-predictor
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: loan-default-predictor
+
+  template:
+    metadata:
+      labels:
+        app: loan-default-predictor
+
+    spec:
+      containers:
+        - name: loan-default-predictor
+          image: vikram220057/loan-default-predictor:17
+          ports:
+            - containerPort: 3000
